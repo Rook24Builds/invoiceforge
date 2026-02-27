@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MoloTasks - Project Tracker</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background: #1a1a1a; color: white; }
+        .task-grid { display: grid; grid-template-columns: 300px 1fr 150px 100px 120px 120px; gap: 10px; margin: 20px 0; }
+        .header { background: #333; padding: 10px; font-weight: bold; border-radius: 4px; }
+        .task { background: #2a2a2a; padding: 15px; border-radius: 4px; border-left: 4px solid #528bff; }
+        .panic { background: #d32f2f; border-left-color: #ff5252; }
+        .planning { background: #1976d2; border-left-color: #2196f3; }
+        .execution { background: #388e3c; border-left-color: #4caf50; }
+        .review { background: #ffa000; border-left-color: #ffc107; }
+        .button {
+            background: #528bff;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 2px;
+        }
+        .progress {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 4px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .counter { font-size: 24px; color: #528bff; }
+    </style>
+</head>
+<body>
+    <h1>MOLO Tasks - Live Tracker</h1>
+    <div class="progress">
+        <h3>Current Stack Progress</h3>
+        <div class="counter" id="progress">0/6 Complete</div>
+    </div>
+
+    <div class="task-grid">
+        <div class="header">Task</div>
+        <div class="header">Details</div>
+        <div class="header">Phase</div>
+        <div class="header">Priority</div>
+        <div class="header">Status</div>
+        <div class="header">Action</div>
+    </div>
+
+    <div class="task-grid">
+        <div class="task panic">
+            <div><strong>1. Fix Notion Routing</strong></div>
+            <div>Debug API permission layer blocking Notion access</div>
+            <div>Planning</div>
+            <div>P0</div>
+            <div>in_progress</div>
+            <div><button class="button" onclick="markDone(1)">Mark Done</button></div>
+        </div>
+
+        <div class="task planning">
+            <div><strong>2. Create Local DB</strong></div>
+            <div>Build browser-based task manager in workspace</div>
+            <div>Execution</div>
+            <div>P0</div>
+            <div>in_progress</div>
+            <div><button class="button" onclick="markDone(2)">Mark Done</button></div>
+        </div>
+
+        <div class="task execution">
+            <div><strong>3. OpenCode Integration</strong></div>
+            <div>Connect coding agent to execute project tasks</div>
+            <div>Execution</div>
+            <div>P1</div>
+            <div>planning</div>
+            <div><button class="button" onclick="markDone(3)">Mark Done</button></div>
+        </div>
+
+        <div class="task review">
+            <div><strong>4. Task Sync Bridge</strong></div>
+            <div>Build bridge to push local tasks to Notion when ready</div>
+            <div>Planning</div>
+            <div>P1</div>
+            <div>backlog</div>
+            <div><button class="button" onclick="markDone(4)">Mark Done</button></div>
+        </div>
+
+        <div class="task panic">
+            <div><strong>5. Testing Integration</strong></div>
+            <div>Test with actual OpenCode execution</div>
+            <div>Execution</div>
+            <div>P2</div>
+            <div>planning</div>
+            <div><button class="button" onclick="markDone(5)">Mark Done</button></div>
+        </div>
+
+        <div class="task planning">
+            <div><strong>6. Live Demo</strong></div>
+            <div>Demonstrate working project tracking system</div>
+            <div>Deployment</div>
+            <div>P0</div>
+            <div>in_progress</div>
+            <div><button class="button" onclick="markDone(6)">Mark Done</button></div>
+        </div>
+    </div>
+
+    <script>
+        let completed = 0;
+        const total = 6;
+        
+        function markDone(taskNum) {
+            completed++;
+            document.getElementById('progress').textContent = `${completed}/${total} Complete`;
+            document.querySelectorAll('.task')[taskNum-1].style.borderLeftColor = '#4caf50';
+            document.querySelectorAll('.task')[taskNum-1].style.background = '#1e4d1e';
+            
+            // Save to local storage
+            const task = document.querySelectorAll('.task')[taskNum-1];
+            const taskName = task.querySelector('div strong').textContent;
+            localStorage.setItem(`molo_${taskNum}`, taskName);
+        }
+
+        // Check what's already done
+        for(let i = 1; i <= total; i++) {
+            if(localStorage.getItem(`molo_${i}`)) {
+                markDone(i);
+            }
+        }
+
+        // Auto-save to file every 30 seconds
+        setInterval(() => {
+            const tasks = Array.from(document.querySelectorAll('.task')).map(task => ({
+                name: task.querySelector('strong').textContent,
+                details: task.querySelectorAll('div')[1].textContent,
+                phase: task.querySelectorAll('div')[2].textContent,
+                priority: task.querySelectorAll('div')[3].textContent,
+                status: task.querySelectorAll('div')[4].textContent
+            }));
+            
+            fetch('/save-tasks', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(tasks)
+            }).catch(() => {});
+        }, 30000);
+    </script>
+</body>
+</html>
