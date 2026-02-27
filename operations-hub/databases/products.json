@@ -1,0 +1,17 @@
+{
+  "database": "Products",
+  "columns": ["Name", "Status", "Price", "Gumroad URL", "GitHub Repo", "Sales", "Revenue", "Created", "Notes"],
+  "rows": [
+    {
+      "Name": "INVOICEFORGE",
+      "Status": "Live",
+      "Price": 19,
+      "Gumroad URL": "https://rook24.gumroad.com/l/invoiceforge",
+      "GitHub Repo": "https://github.com/Rook24Builds/invoiceforge",
+      "Sales": 0,
+      "Revenue": 0,
+      "Created": "2026-02-27",
+      "Notes": "Auto-generating invoice system for Notion"
+    }
+  ]
+}

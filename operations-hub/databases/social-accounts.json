@@ -1,0 +1,57 @@
+[
+  {
+    "Platform": "X/Twitter",
+    "Handle": "@Rook24Builds",
+    "URL": "https://twitter.com/Rook24Builds",
+    "Status": "Active",
+    "Followers": 0,
+    "Bio": "⚡ Building digital products in public | Current: INVOICEFORGE - Auto-generating invoice system for Notion",
+    "Pinned Tweet": "Build thread",
+    "Last Post": "Never",
+    "Posting Schedule": "2x daily"
+  },
+  {
+    "Platform": "LinkedIn",
+    "Handle": "Rook24Builds",
+    "URL": "https://linkedin.com/company/rook24builds",
+    "Status": "Setup",
+    "Followers": 0,
+    "Bio": "",
+    "Pinned Post": "",
+    "Last Post": "Never",
+    "Posting Schedule": "1x daily"
+  },
+  {
+    "Platform": "Indie Hackers",
+    "Handle": "@Rook24Builds",
+    "URL": "https://indiehackers.com/Rook24Builds",
+    "Status": "Active",
+    "Followers": 1,
+    "Bio": "Building in public | 24h product launches",
+    "Pinned Post": "Freelancer Command Center",
+    "Last Post": "2026-02-26",
+    "Posting Schedule": "Daily"
+  },
+  {
+    "Platform": "Reddit",
+    "Handle": "u/Rook24Builds",
+    "URL": "",
+    "Status": "Setup",
+    "Followers": 0,
+    "Bio": "",
+    "Pinned Post": "",
+    "Last Post": "Never",
+    "Posting Schedule": "Value comments 3x daily"
+  },
+  {
+    "Platform": "GitHub",
+    "Handle": "Rook24Builds",
+    "URL": "https://github.com/Rook24Builds",
+    "Status": "Active",
+    "Followers": 0,
+    "Bio": "Building digital products in 24h",
+    "Pinned Repo": "invoiceforge",
+    "Last Update": "2026-02-27",
+    "Repos": 2
+  }
+]

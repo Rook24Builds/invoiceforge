@@ -1,0 +1,68 @@
+[
+  {
+    "Date": "2026-02-27",
+    "Platform": "X/Twitter",
+    "Content Type": "Launch Thread",
+    "Topic": "INVOICEFORGE Launch",
+    "Status": "Ready",
+    "File": "../content/build-in-public-thread.md",
+    "Published": false,
+    "Engagement": 0,
+    "Notes": "5-tweet thread + CTA"
+  },
+  {
+    "Date": "2026-02-27",
+    "Platform": "LinkedIn",
+    "Content Type": "Launch Post",
+    "Topic": "INVOICEFORGE Launch",
+    "Status": "Ready",
+    "File": "../content/linkedin-launch.md",
+    "Published": false,
+    "Engagement": 0,
+    "Notes": "Professional tone, carousel option"
+  },
+  {
+    "Date": "2026-02-27",
+    "Platform": "Reddit",
+    "Content Type": "Value Comment",
+    "Topic": "r/freelance - Invoice tips",
+    "Status": "Ready",
+    "File": "../content/reddit-strategy.md",
+    "Published": false,
+    "Engagement": 0,
+    "Notes": "3 comments with subtle product mention"
+  },
+  {
+    "Date": "2026-02-28",
+    "Platform": "Indie Hackers",
+    "Content Type": "Update",
+    "Topic": "24h Build Complete",
+    "Status": "Ready",
+    "File": "../content/indiehackers-update.md",
+    "Published": false,
+    "Engagement": 0,
+    "Notes": "Build recap + pivot story"
+  },
+  {
+    "Date": "2026-02-28",
+    "Platform": "X/Twitter",
+    "Content Type": "Behind the scenes",
+    "Topic": "Build process",
+    "Status": "Idea",
+    "File": "",
+    "Published": false,
+    "Engagement": 0,
+    "Notes": "Screenshots of Notion DB structure"
+  },
+  {
+    "Date": "2026-03-01",
+    "Platform": "LinkedIn",
+    "Content Type": "Tips",
+    "Topic": "Freelance automation",
+    "Status": "Idea",
+    "File": "",
+    "Published": false,
+    "Engagement": 0,
+    "Notes": "5 tools every freelancer needs"
+  }
+]
