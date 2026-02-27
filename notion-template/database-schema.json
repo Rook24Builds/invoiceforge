@@ -1,0 +1,92 @@
+{
+  "object": "database",
+  "title": [
+    {
+      "type": "text",
+      "text": {
+        "content": "Invoices"
+      }
+    }
+  ],
+  "properties": {
+    "Invoice #": {
+      "title": {}
+    },
+    "Client": {
+      "relation": {
+        "database_id": "REPLACE_WITH_YOUR_CLIENTS_DB_ID",
+        "single_property": {}
+      }
+    },
+    "Project": {
+      "relation": {
+        "database_id": "REPLACE_WITH_YOUR_PROJECTS_DB_ID",
+        "single_property": {}
+      }
+    },
+    "Issue Date": {
+      "date": {}
+    },
+    "Due Date": {
+      "date": {}
+    },
+    "Status": {
+      "select": {
+        "options": [
+          {
+            "name": "Draft",
+            "color": "gray"
+          },
+          {
+            "name": "Sent",
+            "color": "blue"
+          },
+          {
+            "name": "Paid",
+            "color": "green"
+          },
+          {
+            "name": "Overdue",
+            "color": "red"
+          }
+        ]
+      }
+    },
+    "Line Items": {
+      "rich_text": {}
+    },
+    "Hours": {
+      "number": {
+        "format": "number"
+      }
+    },
+    "Rate": {
+      "number": {
+        "format": "dollar"
+      }
+    },
+    "Subtotal": {
+      "formula": {
+        "expression": "prop(\"Hours\") * prop(\"Rate\")"
+      }
+    },
+    "Tax Rate": {
+      "number": {
+        "format": "number"
+      }
+    },
+    "Tax Amount": {
+      "formula": {
+        "expression": "prop(\"Subtotal\") * prop(\"Tax Rate\")"
+      }
+    },
+    "Total": {
+      "formula": {
+        "expression": "prop(\"Subtotal\") + prop(\"Tax Amount\")"
+      }
+    },
+    "Notes": {
+      "rich_text": {}
+    }
+  }
+}
