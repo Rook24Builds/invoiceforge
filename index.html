@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freelancer Command Center — Stop Juggling Apps</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --accent: #22d3ee;
+            --dark: #0f172a;
+            --gray: #64748b;
+            --light: #f8fafc;
+            --white: #ffffff;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--white);
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-weight: 800;
+            font-size: 1.25rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .nav-cta {
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1.25rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.875rem;
+            transition: all 0.2s;
+        }
+        
+        .nav-cta:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+        
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--dark) 0%, #1e293b 50%, var(--primary-dark) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%236366f1' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+        
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: rgba(34, 211, 238, 0.15);
+            color: var(--accent);
+            padding: 0.5rem 1rem;
+            border-radius: 100px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(34, 211, 238, 0.3);
+        }
+        
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            color: white;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--accent), #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: rgba(255,255,255,0.9);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-desc {
+            font-size: 1.125rem;
+            color: rgba(255,255,255,0.7);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+        
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.125rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.4);
+        }
+        
+        .hero-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.5);
+        }
+        
+        .hero-price {
+            margin-top: 1.5rem;
+            font-size: 1rem;
+            color: rgba(255,255,255,0.6);
+        }
+        
+        .hero-price strong {
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        /* Sections */
+        section {
+            padding: 6rem 2rem;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-tag {
+            display: inline-block;
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+        
+        .section-desc {
+            font-size: 1.125rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Problem Section */
+        .problem {
+            background: var(--light);
+        }
+        
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .problem-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .problem-card .icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .problem-card h3 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .problem-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+        
+        /* Solution Section */
+        .solution {
+            background: white;
+        }
+        
+        .feature-list {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .feature-item {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+            padding: 1.5rem;
+            background: var(--light);
+            border-radius: 12px;
+            transition: all 0.2s;
+        }
+        
+        .feature-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        
+        .feature-item .check {
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, #10b981, #059669);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        
+        .feature-item h4 {
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+        
+        .feature-item p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+        
+        /* Included Section */
+        .included {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .included .section-title {
+            color: white;
+        }
+        
+        .included .section-desc {
+            color: rgba(255,255,255,0.8);
+        }
+        
+        .included-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+        
+        .included-item {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .included-item .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .included-item h4 {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .included-item p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        /* FAQ Section */
+        .faq {
+            background: var(--light);
+        }
+        
+        .faq-list {
+            max-width: 800px;
+            margin: 3rem auto 0;
+        }
+        
+        .faq-item {
+            background: white;
+            margin-bottom: 1rem;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .faq-question {
+            padding: 1.5rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s;
+        }
+        
+        .faq-question:hover {
+            background: rgba(99, 102, 241, 0.05);
+        }
+        
+        .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            color: var(--gray);
+            line-height: 1.7;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: var(--dark);
+            text-align: center;
+            padding: 6rem 2rem;
+        }
+        
+        .cta-section h2 {
+            color: white;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-section p {
+            color: rgba(255,255,255,0.7);
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+        }
+        
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--accent), #06b6d4);
+            color: var(--dark);
+            padding: 1.25rem 3rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.25rem;
+            transition: all 0.3s;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 60px rgba(34, 211, 238, 0.3);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        footer p {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.875rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.75rem;
+            }
+            
+            section {
+                padding: 4rem 1.5rem;
+            }
+            
+            .problem-grid,
+            .included-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .problem-card,
+        .feature-item,
+        .included-item {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        .problem-card:nth-child(2) { animation-delay: 0.1s; }
+        .problem-card:nth-child(3) { animation-delay: 0.2s; }
+        .problem-card:nth-child(4) { animation-delay: 0.3s; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="logo">♜ Rook Builds</div>
+            <a href="https://rook24.gumroad.com/l/ugbkj" class="nav-cta">Get It Now — $19</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="badge">🚀 Just Launched</div>
+            <h1>Stop Juggling <span>5 Apps</span> Just to Send an Invoice</h1>
+            <p class="hero-subtitle">Freelancer Command Center</p>
+            <p class="hero-desc">One Notion template + Canva invoices. Save 2+ hours every month. Professional client management without the subscription fees.</p>
+            <a href="https://rook24.gumroad.com/l/ugbkj" class="hero-cta">
+                Get Instant Access →
+            </a>
+            <p class="hero-price"><strong>$19</strong> — Instant digital download</p>
+        </div>
+    </section>
+
+    <section class="problem">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">The Problem</div>
+                <h2 class="section-title">You're Bleeding Hours on Admin</h2>
+                <p class="section-desc">Sound familiar? You're spending more time managing your tools than your clients.</p>
+            </div>
+            
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="icon">📊</div>
+                    <h3>App Sprawl</h3>
+                    <p>Notion, Google Sheets, Trello, Docs, Canva... scattered across platforms.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="icon">⏰</div>
+                    <h3>Time Vampire</h3>
+                    <p>2-3 hours every month just organizing client info. That's a week per year.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="icon">😵‍💫</div>
+                    <h3>Invoice Nightmares</h3>
+                    <p>Every invoice becomes a scavenger hunt. Who paid? Who's overdue?</p>
+                </div>
+                <div class="problem-card">
+                    <div class="icon">💸</div>
+                    <h3>Tool Costs</h3>
+                    <p>$20-100/month subscriptions for features you barely use.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="solution">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">The Solution</div>
+                <h2 class="section-title">Everything in One Place</h2>
+                <p class="section-desc">One dashboard. All your clients. Zero subscription fees.</p>
+            </div>
+            
+            <div class="feature-list">
+                <div class="feature-item">
+                    <div class="check">✓</div>
+                    <div>
+                        <h4>Client Database with Auto-Relations</h4>
+                        <p>Update a client once — it propagates to every project and invoice automatically.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="check">✓</div>
+                    <div>
+                        <h4>Project Tracker & Pipeline</h4>
+                        <p>See status at a glance. Know exactly what's in progress, pending, or overdue.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="check">✓</div>
+                    <div>
+                        <h4>Income Dashboard</h4>
+                        <p>Revenue tracking that actually makes sense. See who's paid and who owes what.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="check">✓</div>
+                    <div>
+                        <h4>3 Canva Invoice Templates</h4>
+                        <p>Professional, branded invoices that get you paid faster. Customizable in minutes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="included">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag" style="color: var(--accent)">What's Included</div>
+                <h2 class="section-title">The Complete Package</h2>
+                <p class="section-desc">Everything you need to manage clients like a pro.</p>
+            </div>
+            
+            <div class="included-grid">
+                <div class="included-item">
+                    <div class="icon">📋</div>
+                    <h4>Notion Template</h4>
+                    <p>Full freelance CRM with linked databases</p>
+                </div>
+                <div class="included-item">
+                    <div class="icon">🎨</div>
+                    <h4>3 Invoice Templates</h4>
+                    <p>Professional Canva designs, editable</p>
+                </div>
+                <div class="included-item">
+                    <div class="icon">👥</div>
+                    <h4>Client Database</h4>
+                    <p>Track contacts, rates, contracts</p>
+                </div>
+                <div class="included-item">
+                    <div class="icon">📈</div>
+                    <h4>Income Tracking</h4>
+                    <p>Pipeline & revenue dashboard</p>
+                </div>
+                <div class="included-item">
+                    <div class="icon">⚡</div>
+                    <h4>Instant Access</h4>
+                    <p>Download, duplicate, start using</p>
+                </div>
+                <div class="included-item">
+                    <div class="icon">🔄</div>
+                    <h4>Free Updates</h4>
+                    <p>All future template improvements</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">FAQ</div>
+                <h2 class="section-title">Common Questions</h2>
+                <p class="section-desc">Quick answers to save you time.</p>
+            </div>
+            
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Do I need a paid Notion account?
+                        <span>→</span>
+                    </div>
+                    <div class="faq-answer">Nope. Works perfectly on Notion's generous free plan. No hidden costs, no subscriptions.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Can I customize the templates?
+                        <span>→</span>
+                    </div>
+                    <div class="faq-answer">Absolutely. Duplicate the template and modify everything to match your workflow. Add fields, change views, make it yours.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How do I access the Canva invoices?
+                        <span>→</span>
+                    </div>
+                    <div class="faq-answer">Direct link in the Notion template takes you straight to Canva. Just click "Use template" and customize colors, logos, fonts.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What if I have questions or issues?
+                        <span>→</span>
+                    </div>
+                    <div class="faq-answer">Email support included. I actually respond (usually within a few hours). Not some ticket system abyss.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Stop Drowning in Admin?</h2>
+            <p>Join freelancers who've reclaimed 2+ hours every month.</p>
+            <a href="https://rook24.gumroad.com/l/ugbkj" class="cta-button">
+                Get Instant Access — $19 →
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 Rook Builds — Built in 2 hours for $0.025</p>
+    </footer>
+</body>
+</html>
