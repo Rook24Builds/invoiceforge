@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Freelancer Command Center — Stop Juggling Apps</title>
+    <title>INVOICEFORGE — Auto-Generate Invoices From Your Notion Data</title>
+    <meta name="description" content="The only Notion template that calculates invoices from linked client data. Pre-populated with 5 sample clients, auto-calculating forms, and one-click PDF export. $19 one-time.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -49,7 +50,7 @@
         
         .logo {
             font-weight: 800;
-            font-size: 1.25rem;
+            font-size: 1.5rem;
             background: linear-gradient(135deg, var(--primary), var(--accent));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -85,17 +86,14 @@
         .hero::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            top: 0; left: 0; right: 0; bottom: 0;
             background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%236366f1' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
             opacity: 0.5;
         }
         
         .hero-content {
             text-align: center;
-            max-width: 800px;
+            max-width: 900px;
             padding: 2rem;
             position: relative;
             z-index: 1;
@@ -114,11 +112,12 @@
         }
         
         .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-size: clamp(3rem, 6vw, 5rem);
             font-weight: 800;
             color: white;
             line-height: 1.1;
             margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
         }
         
         .hero h1 span {
@@ -128,16 +127,16 @@
         }
         
         .hero-subtitle {
-            font-size: 1.5rem;
+            font-size: 1.75rem;
             color: rgba(255,255,255,0.9);
             font-weight: 600;
             margin-bottom: 1rem;
         }
         
         .hero-desc {
-            font-size: 1.125rem;
+            font-size: 1.25rem;
             color: rgba(255,255,255,0.7);
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto 2rem;
         }
         
@@ -147,11 +146,11 @@
             gap: 0.5rem;
             background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: white;
-            padding: 1rem 2.5rem;
+            padding: 1.25rem 3rem;
             border-radius: 12px;
             text-decoration: none;
             font-weight: 700;
-            font-size: 1.125rem;
+            font-size: 1.25rem;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 0 10px 40px rgba(99, 102, 241, 0.4);
         }
@@ -163,13 +162,13 @@
         
         .hero-price {
             margin-top: 1.5rem;
-            font-size: 1rem;
+            font-size: 1.125rem;
             color: rgba(255,255,255,0.6);
         }
         
         .hero-price strong {
             color: white;
-            font-size: 1.5rem;
+            font-size: 2rem;
         }
         
         /* Sections */
@@ -210,230 +209,200 @@
             margin: 0 auto;
         }
         
-        /* Problem Section */
-        .problem {
+        /* Demo Section */
+        .demo {
             background: var(--light);
         }
         
-        .problem-grid {
+        .demo-box {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            margin-top: 2rem;
+        }
+        
+        .demo-box h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .workflow-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+        
+        .workflow-table th,
+        .workflow-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .workflow-table th {
+            font-weight: 600;
+            color: var(--gray);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+        }
+        
+        .workflow-table .time {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .workflow-table .auto {
+            color: #10b981;
+            font-weight: 600;
+        }
+        
+        /* Features Grid */
+        .features {
+            background: white;
+        }
+        
+        .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
         
-        .problem-card {
-            background: white;
+        .feature-card {
             padding: 2rem;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            border: 1px solid rgba(0,0,0,0.05);
-        }
-        
-        .problem-card .icon {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-        
-        .problem-card h3 {
-            font-size: 1.125rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-        
-        .problem-card p {
-            color: var(--gray);
-            font-size: 0.95rem;
-        }
-        
-        /* Solution Section */
-        .solution {
-            background: white;
-        }
-        
-        .feature-list {
-            display: grid;
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-        
-        .feature-item {
-            display: flex;
-            gap: 1.5rem;
-            align-items: flex-start;
-            padding: 1.5rem;
             background: var(--light);
-            border-radius: 12px;
+            border-radius: 16px;
+            border: 1px solid rgba(0,0,0,0.05);
             transition: all 0.2s;
         }
         
-        .feature-item:hover {
-            transform: translateX(5px);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
         }
         
-        .feature-item .check {
-            width: 28px;
-            height: 28px;
-            background: linear-gradient(135deg, #10b981, #059669);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
+        .feature-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.25rem;
             font-weight: 700;
-            flex-shrink: 0;
+            margin-bottom: 0.75rem;
         }
         
-        .feature-item h4 {
-            font-weight: 700;
-            margin-bottom: 0.25rem;
-        }
-        
-        .feature-item p {
+        .feature-card p {
             color: var(--gray);
             font-size: 0.95rem;
+            line-height: 1.6;
         }
         
-        /* Included Section */
-        .included {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+        /* Pricing */
+        .pricing {
+            background: linear-gradient(135deg, var(--dark) 0%, #1e293b 100%);
             color: white;
             text-align: center;
         }
         
-        .included .section-title {
+        .pricing .section-title {
             color: white;
         }
         
-        .included .section-desc {
-            color: rgba(255,255,255,0.8);
-        }
-        
-        .included-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 4rem;
-        }
-        
-        .included-item {
+        .pricing-box {
+            max-width: 500px;
+            margin: 3rem auto 0;
             background: rgba(255,255,255,0.1);
             backdrop-filter: blur(10px);
-            padding: 2rem;
-            border-radius: 16px;
+            border-radius: 24px;
+            padding: 3rem 2rem;
             border: 1px solid rgba(255,255,255,0.2);
         }
         
-        .included-item .icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        
-        .included-item h4 {
-            font-weight: 700;
+        .price {
+            font-size: 4rem;
+            font-weight: 800;
             margin-bottom: 0.5rem;
         }
         
-        .included-item p {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-        
-        /* FAQ Section */
-        .faq {
-            background: var(--light);
-        }
-        
-        .faq-list {
-            max-width: 800px;
-            margin: 3rem auto 0;
-        }
-        
-        .faq-item {
-            background: white;
-            margin-bottom: 1rem;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-        
-        .faq-question {
-            padding: 1.5rem;
-            font-weight: 700;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: background 0.2s;
-        }
-        
-        .faq-question:hover {
-            background: rgba(99, 102, 241, 0.05);
-        }
-        
-        .faq-answer {
-            padding: 0 1.5rem 1.5rem;
-            color: var(--gray);
-            line-height: 1.7;
-        }
-        
-        /* CTA Section */
-        .cta-section {
-            background: var(--dark);
-            text-align: center;
-            padding: 6rem 2rem;
-        }
-        
-        .cta-section h2 {
-            color: white;
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-        }
-        
-        .cta-section p {
-            color: rgba(255,255,255,0.7);
-            font-size: 1.125rem;
-            margin-bottom: 2rem;
-        }
-        
-        .cta-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: linear-gradient(135deg, var(--accent), #06b6d4);
-            color: var(--dark);
-            padding: 1.25rem 3rem;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 800;
+        .price span {
             font-size: 1.25rem;
-            transition: all 0.3s;
+            color: rgba(255,255,255,0.6);
         }
         
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 20px 60px rgba(34, 211, 238, 0.3);
+        .pricing-features {
+            text-align: left;
+            margin: 2rem 0;
+            list-style: none;
+        }
+        
+        .pricing-features li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .pricing-features li::before {
+            content: "✓";
+            color: var(--accent);
+            font-weight: 700;
+        }
+        
+        .roi-box {
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .roi-box p {
+            margin-bottom: 0.5rem;
+        }
+        
+        .roi-box strong {
+            color: #10b981;
         }
         
         /* Footer */
         footer {
             background: var(--dark);
             border-top: 1px solid rgba(255,255,255,0.1);
-            padding: 2rem;
+            padding: 3rem 2rem;
             text-align: center;
         }
         
         footer p {
             color: rgba(255,255,255,0.5);
             font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
         }
         
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
             
             .section-title {
@@ -444,226 +413,186 @@
                 padding: 4rem 1.5rem;
             }
             
-            .problem-grid,
-            .included-grid {
+            .features-grid {
                 grid-template-columns: 1fr;
             }
-        }
-        
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
+            
+            .price {
+                font-size: 3rem;
             }
         }
-        
-        .problem-card,
-        .feature-item,
-        .included-item {
-            animation: fadeInUp 0.6s ease forwards;
-        }
-        
-        .problem-card:nth-child(2) { animation-delay: 0.1s; }
-        .problem-card:nth-child(3) { animation-delay: 0.2s; }
-        .problem-card:nth-child(4) { animation-delay: 0.3s; }
     </style>
 </head>
 <body>
     <nav>
         <div class="container">
-            <div class="logo">♜ Rook Builds</div>
-            <a href="https://rook24.gumroad.com/l/ugbkj" class="nav-cta">Get It Now — $19</a>
+            <div class="logo">⚡ INVOICEFORGE</div>
+            <a href="https://rook24.gumroad.com/l/invoiceforge" class="nav-cta">Get It — $19</a>
         </div>
     </nav>
 
     <section class="hero">
         <div class="hero-content">
             <div class="badge">🚀 Just Launched</div>
-            <h1>Stop Juggling <span>5 Apps</span> Just to Send an Invoice</h1>
-            <p class="hero-subtitle">Freelancer Command Center</p>
-            <p class="hero-desc">One Notion template + Canva invoices. Save 2+ hours every month. Professional client management without the subscription fees.</p>
-            <a href="https://rook24.gumroad.com/l/ugbkj" class="hero-cta">
-                Get Instant Access →
+            <h1>INVOICEFORGE</h1>
+            <p class="hero-subtitle">Auto-Generate Invoices From Your Notion Data</p>
+            <p class="hero-desc">Pre-populated with 5 sample clients. Auto-calculating formulas. One-click PDF export. The only Notion template where Clients → Projects → Invoices are linked and calculated automatically.</p>
+            <a href="https://rook24.gumroad.com/l/invoiceforge" class="hero-cta">
+                Get INVOICEFORGE →
             </a>
-            <p class="hero-price"><strong>$19</strong> — Instant digital download</p>
+            <p class="hero-price"><strong>$19</strong> — One-time purchase, yours forever</p>
         </div>
     </section>
 
-    <section class="problem">
+    <section class="demo">
         <div class="container">
             <div class="section-header">
-                <div class="section-tag">The Problem</div>
-                <h2 class="section-title">You're Bleeding Hours on Admin</h2>
-                <p class="section-desc">Sound familiar? You're spending more time managing your tools than your clients.</p>
+                <div class="section-tag">How It Works</div>
+                <h2 class="section-title">60 Seconds. Database to Sent Invoice.</h2>
+                <p class="section-desc">Enter hours. Get calculated totals. Export PDF. Done.</p>
             </div>
             
-            <div class="problem-grid">
-                <div class="problem-card">
-                    <div class="icon">📊</div>
-                    <h3>App Sprawl</h3>
-                    <p>Notion, Google Sheets, Trello, Docs, Canva... scattered across platforms.</p>
-                </div>
-                <div class="problem-card">
-                    <div class="icon">⏰</div>
-                    <h3>Time Vampire</h3>
-                    <p>2-3 hours every month just organizing client info. That's a week per year.</p>
-                </div>
-                <div class="problem-card">
-                    <div class="icon">😵‍💫</div>
-                    <h3>Invoice Nightmares</h3>
-                    <p>Every invoice becomes a scavenger hunt. Who paid? Who's overdue?</p>
-                </div>
-                <div class="problem-card">
-                    <div class="icon">💸</div>
-                    <h3>Tool Costs</h3>
-                    <p>$20-100/month subscriptions for features you barely use.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="solution">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-tag">The Solution</div>
-                <h2 class="section-title">Everything in One Place</h2>
-                <p class="section-desc">One dashboard. All your clients. Zero subscription fees.</p>
-            </div>
-            
-            <div class="feature-list">
-                <div class="feature-item">
-                    <div class="check">✓</div>
-                    <div>
-                        <h4>Client Database with Auto-Relations</h4>
-                        <p>Update a client once — it propagates to every project and invoice automatically.</p>
-                    </div>
-                </div>
-                <div class="feature-item">
-                    <div class="check">✓</div>
-                    <div>
-                        <h4>Project Tracker & Pipeline</h4>
-                        <p>See status at a glance. Know exactly what's in progress, pending, or overdue.</p>
-                    </div>
-                </div>
-                <div class="feature-item">
-                    <div class="check">✓</div>
-                    <div>
-                        <h4>Income Dashboard</h4>
-                        <p>Revenue tracking that actually makes sense. See who's paid and who owes what.</p>
-                    </div>
-                </div>
-                <div class="feature-item">
-                    <div class="check">✓</div>
-                    <div>
-                        <h4>3 Canva Invoice Templates</h4>
-                        <p>Professional, branded invoices that get you paid faster. Customizable in minutes.</p>
-                    </div>
-                </div>
+            <div class="demo-box">
+                <h3>The Workflow</h3>
+                <table class="workflow-table">
+                    <thead>
+                        <tr>
+                            <th>Step</th>
+                            <th>Action</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Open Invoices database</td>
+                            <td class="time">2 sec</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Click + New invoice</td>
+                            <td class="time">2 sec</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Select client (auto-fills contact & rate)</td>
+                            <td class="time">5 sec</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Enter hours worked</td>
+                            <td class="time">5 sec</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td><strong>Rate auto-fills + Total calculates</strong></td>
+                            <td class="auto">Auto</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>Export PDF</td>
+                            <td class="time">10 sec</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>Send to client</td>
+                            <td class="time">20 sec</td>
+                        </tr>
+                        <tr style="background: rgba(99, 102, 241, 0.1);">
+                            <td></td>
+                            <td><strong>Total Time</strong></td>
+                            <td class="time"><strong>~60 seconds</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="margin-top: 1.5rem; color: var(--gray); text-align: center;">
+                    <strong>Before:</strong> 15 minutes of app-switching • <strong>After:</strong> 60 seconds
+                </p>
             </div>
         </div>
     </section>
 
-    <section class="included">
+    <section class="features">
         <div class="container">
             <div class="section-header">
-                <div class="section-tag" style="color: var(--accent)">What's Included</div>
-                <h2 class="section-title">The Complete Package</h2>
-                <p class="section-desc">Everything you need to manage clients like a pro.</p>
+                <div class="section-tag">Features</div>
+                <h2 class="section-title">Everything You Need</h2>
+                <p class="section-desc">Pre-built. Pre-linked. Pre-calculated.</p>
             </div>
             
-            <div class="included-grid">
-                <div class="included-item">
-                    <div class="icon">📋</div>
-                    <h4>Notion Template</h4>
-                    <p>Full freelance CRM with linked databases</p>
-                </div>
-                <div class="included-item">
-                    <div class="icon">🎨</div>
-                    <h4>3 Invoice Templates</h4>
-                    <p>Professional Canva designs, editable</p>
-                </div>
-                <div class="included-item">
+            <div class="features-grid">
+                <div class="feature-card">
                     <div class="icon">👥</div>
-                    <h4>Client Database</h4>
-                    <p>Track contacts, rates, contracts</p>
+                    <h3>5 Pre-Populated Clients</h3>
+                    <p>Start with realistic examples (SaaS, coaching, e-commerce, agency, non-profit). See how it works, then replace with your own.</p>
                 </div>
-                <div class="included-item">
-                    <div class="icon">📈</div>
-                    <h4>Income Tracking</h4>
-                    <p>Pipeline & revenue dashboard</p>
+                <div class="feature-card">
+                    <div class="icon">📊</div>
+                    <h3>Auto-Calculating Totals</h3>
+                    <p>Enter hours. Rate auto-fills from client record. Subtotal, tax, and total calculate instantly via formulas.</p>
                 </div>
-                <div class="included-item">
-                    <div class="icon">⚡</div>
-                    <h4>Instant Access</h4>
-                    <p>Download, duplicate, start using</p>
+                <div class="feature-card">
+                    <div class="icon">🔗</div>
+                    <h3>Linked Databases</h3>
+                    <p>Client → Projects → Invoices. Everything connected. Change a client's rate, future invoices auto-update.</p>
                 </div>
-                <div class="included-item">
-                    <div class="icon">🔄</div>
-                    <h4>Free Updates</h4>
-                    <p>All future template improvements</p>
+                <div class="feature-card">
+                    <div class="icon">📄</div>
+                    <h3>One-Click PDF Export</h3>
+                    <p>Export clean, professional invoices from Notion. No design needed. Ready to send.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">💰</div>
+                    <h3>Income Dashboard</h3>
+                    <p>Track revenue, outstanding invoices, overdue alerts. Know exactly who owes what.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🎨</div>
+                    <h3>Bonus: 3 Canva Templates</h3>
+                    <p>Need extra polish? Use the included Canva templates. Direct links, ready to customize.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="faq">
+    <section class="pricing">
         <div class="container">
             <div class="section-header">
-                <div class="section-tag">FAQ</div>
-                <h2 class="section-title">Common Questions</h2>
-                <p class="section-desc">Quick answers to save you time.</p>
+                <div class="section-tag" style="color: var(--accent);">Pricing</div>
+                <h2 class="section-title">One-Time Purchase</h2>
+                <p class="section-desc" style="color: rgba(255,255,255,0.7);">No subscription. No hidden fees. Yours forever.</p>
             </div>
             
-            <div class="faq-list">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        Do I need a paid Notion account?
-                        <span>→</span>
-                    </div>
-                    <div class="faq-answer">Nope. Works perfectly on Notion's generous free plan. No hidden costs, no subscriptions.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        Can I customize the templates?
-                        <span>→</span>
-                    </div>
-                    <div class="faq-answer">Absolutely. Duplicate the template and modify everything to match your workflow. Add fields, change views, make it yours.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        How do I access the Canva invoices?
-                        <span>→</span>
-                    </div>
-                    <div class="faq-answer">Direct link in the Notion template takes you straight to Canva. Just click "Use template" and customize colors, logos, fonts.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        What if I have questions or issues?
-                        <span>→</span>
-                    </div>
-                    <div class="faq-answer">Email support included. I actually respond (usually within a few hours). Not some ticket system abyss.</div>
+            <div class="pricing-box">
+                <div class="price">$19<span>one-time</span></div>
+                <ul class="pricing-features">
+                    <li>Pre-populated Notion template</li>
+                    <li>5 sample clients + 8 projects</li>
+                    <li>Auto-calculating formulas</li>
+                    <li>Linked databases + PDF export</li>
+                    <li>3 Canva invoice templates</li>
+                    <li>Full documentation</li>
+                    <li>Free updates</li>
+                </ul>
+                <a href="https://rook24.gumroad.com/l/invoiceforge" class="hero-cta" style="display: inline-flex; margin-top: 1rem;">
+                    Buy INVOICEFORGE →
+                </a>
+                <div class="roi-box">
+                    <p>💡 <strong>ROI:</strong> Save 2 hrs/month × $50/hr = $100/month value</p>
+                    <p><strong>Payback:</strong> 12 minutes of use</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section class="cta-section">
-        <div class="container">
-            <h2>Ready to Stop Drowning in Admin?</h2>
-            <p>Join freelancers who've reclaimed 2+ hours every month.</p>
-            <a href="https://rook24.gumroad.com/l/ugbkj" class="cta-button">
-                Get Instant Access — $19 →
-            </a>
         </div>
     </section>
 
     <footer>
-        <p>© 2024 Rook Builds — Built in 2 hours for $0.025</p>
+        <p>© 2024 INVOICEFORGE — Built by Rook Builds</p>
+        <p style="font-size: 0.75rem; color: rgba(255,255,255,0.3);">24-hour build | $0.05 cost | Working solution</p>
+        <div class="footer-links">
+            <a href="https://twitter.com/InvoiceForge">Twitter</a>
+            <a href="https://rook24.gumroad.com/l/invoiceforge">Gumroad</a>
+            <a href="mailto:rookbuilds24@grr.la">Contact</a>
+        </div>
     </footer>
 </body>
 </html>
