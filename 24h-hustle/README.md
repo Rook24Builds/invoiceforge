@@ -143,31 +143,38 @@ Client → Project → Work Log (tasks/hours) → Invoice (with line items) → 
 4. Amount auto-calculates
 5. Select Project and Invoice to bill
 
-### 5. Generate Invoice (Optional - 10 min setup)
-1. Set up [Make.com integration](MAKE-INTEGRATION.md) (one-time)
-2. Change Invoice Status to "Sent"
-3. PDF auto-generates → saves to Notion
-4. Download PDF, email to client
+### 5. Generate PDF (Optional - 15 min setup)
+1. Import `INVOICEFORGE-PDF-Generator.json` to Make.com
+2. Follow `MAKE-SCENARIO-SETUP.md` to connect accounts
+3. Change Invoice Status to "Sent"
+4. PDF auto-generates → saves to Notion
+5. Download PDF, email to client
 
 ---
 
-## Make.com Integration
+## Make.com Integration (PDF Automation)
 
-**Included:** `MAKE-INTEGRATION.md` with step-by-step setup
+**What You Get:**
+- Importable Make scenario (`INVOICEFORGE-PDF-Generator.json`)
+- Step-by-step setup guide (`MAKE-SCENARIO-SETUP.md`)
+- Google Doc template instructions
 
-**Requirements:**
-- Make.com account (free)
-- Google account (for PDF template)
+**What It Does:**
+1. Watches your INVOICEFORGE Invoices database
+2. When Status = "Sent" → triggers automatically
+3. Pulls invoice data + line items (Work Log) + client info
+4. Generates professional PDF via Google Docs
+5. Saves PDF back to your Notion invoice (files property)
+6. Optional: auto-emails PDF to client
 
-**What it does:**
-- Watches for "Status = Sent"
-- Pulls invoice + line items
-- Generates PDF via Google Docs
-- Saves PDF to Notion
-- Optional: emails to client
+**Setup:** 15 minutes (import JSON + connect accounts)  
+**Cost:** $0/month (Make free tier: 1,000 operations)  
+**Usage:** ~7 operations per invoice = ~140 invoices/month free
 
-**Setup time:** 15 minutes  
-**Monthly cost:** $0 (1,000 free operations)
+**What's Included:**
+- `INVOICEFORGE-PDF-Generator.json` — Ready to import
+- `MAKE-SCENARIO-SETUP.md` — Complete walkthrough
+- `MAKE-INTEGRATION.md` — Technical reference
 
 ---
 
@@ -177,8 +184,10 @@ Client → Project → Work Log (tasks/hours) → Invoice (with line items) → 
 
 **Includes:**
 - Notion template (all databases + sample data)
-- Make.com integration guide
-- Google Docs PDF template
+- `INVOICEFORGE-PDF-Generator.json` — Importable Make scenario
+- `MAKE-SCENARIO-SETUP.md` — Step-by-step PDF automation guide
+- `MAKE-INTEGRATION.md` — Technical reference
+- Google Docs template instructions
 
 **Requires:**
 - Notion account (free)
@@ -190,10 +199,9 @@ Client → Project → Work Log (tasks/hours) → Invoice (with line items) → 
 ## FAQ
 
 **Q: How do I generate PDFs?**  
-A: Three options:
-1. **Recommended:** Use included Make.com setup → auto-generate PDFs
-2. **Manual:** Notion → Export → PDF (page by page)
-3. **Canva:** Use included 3 Canva templates
+A: Two options:
+1. **Recommended:** Import Make scenario → Status "Sent" triggers auto-generation
+2. **Manual:** Notion → Export → PDF (per page)
 
 **Q: Can I use without Make.com?**  
 A: Yes. Template works fully. Make.com is optional for PDF automation.
@@ -211,11 +219,12 @@ A: Fully. It's Notion — change properties, add fields, modify formulas.
 ```
 INVOICEFORGE/
 ├── 📊 Notion Template (duplicate link)
-├── 📖 SETUP.md - Quick start guide
-├── ⚙️ MAKE-INTEGRATION.md - Make.com setup
-├── 📄 SAMPLE-DATA.md - Sample data explanation
-├── 🎨 Canva Templates/ - 3 invoice designs
-└── 📝 Canva Template Links.md
+├── 📖 SETUP.md — Quick start guide
+├── ⚙️ MAKE-SCENARIO-SETUP.md — PDF automation setup (15 min)
+├── ⚙️ MAKE-INTEGRATION.md — Technical reference
+├── ⚙️ make-scenarios/
+│   └── INVOICEFORGE-PDF-Generator.json — Import to Make.com
+└── 📄 SAMPLE-DATA.md — Sample data explanation
 ```
 
 ---

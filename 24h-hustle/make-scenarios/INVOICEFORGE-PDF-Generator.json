@@ -1,0 +1,120 @@
+{
+  "name": "INVOICEFORGE PDF Generator",
+  "description": "Generate PDFs from Notion invoices when status changes to Sent",
+  "scenario": {
+    "nodes": [
+      {
+        "id": 1,
+        "module": "notion:WatchDatabaseItems",
+        "name": "Watch Invoices",
+        "parameters": {
+          "databaseId": "YOUR_INVOICES_DB_ID",
+          "filter": {
+            "property": "Status",
+            "select": {
+              "equals": "Sent"
+            }
+          }
+        }
+      },
+      {
+        "id": 2,
+        "module": "notion:GetDatabaseItem",
+        "name": "Get Invoice Details",
+        "parameters": {
+          "databaseId": "YOUR_INVOICES_DB_ID",
+          "itemId": "{{1.id}}"
+        }
+      },
+      {
+        "id": 3,
+        "module": "notion:QueryDatabase",
+        "name": "Get Line Items",
+        "parameters": {
+          "databaseId": "YOUR_WORKLOG_DB_ID",
+          "filter": {
+            "property": "Invoices",
+            "relation": {
+              "contains": "{{1.id}}"
+            }
+          }
+        }
+      },
+      {
+        "id": 4,
+        "module": "notion:GetDatabaseItem",
+        "name": "Get Client Details",
+        "parameters": {
+          "databaseId": "YOUR_CLIENTS_DB_ID",
+          "itemId": "{{2.properties.Client.relation[0].id}}"
+        }
+      },
+      {
+        "id": 5,
+        "module": "googledocs:CreateDocumentFromTemplate",
+        "name": "Generate Invoice Document",
+        "parameters": {
+          "templateId": "YOUR_GOOGLE_DOC_TEMPLATE_ID",
+          "title": "Invoice {{2.properties.Invoice #.title[0].text.content}}",
+          "data": {
+            "invoice_number": "{{2.properties.Invoice #.title[0].text.content}}",
+            "client_name": "{{4.properties.Name.title[0].text.content}}",
+            "client_email": "{{4.properties.Contact Email.email}}",
+            "client_address": "{{4.properties.Address.rich_text[0].text.content}}",
+            "issue_date": "{{2.properties.Issue Date.date.start}}",
+            "due_date": "{{2.properties.Due Date.date.start}}",
+            "subtotal": "{{2.properties.Amount.number}}",
+            "tax_percent": "{{2.properties.Tax Percent.number}}",
+            "tax_amount": "{{2.properties.Tax.formula.number}}",
+            "total": "{{2.properties.Total.formula.number}}",
+            "line_items": "{{3.results}}"
+          }
+        }
+      },
+      {
+        "id": 6,
+        "module": "googledocs:DownloadDocument",
+        "name": "Export as PDF",
+        "parameters": {
+          "documentId": "{{5.id}}",
+          "format": "pdf"
+        }
+      },
+      {
+        "id": 7,
+        "module": "notion:UpdatePageProperties",
+        "name": "Save PDF to Notion",
+        "parameters": {
+          "pageId": "{{1.id}}",
+          "properties": {
+            "PDF": {
+              "files": [
+                {
+                  "name": "Invoice-{{2.properties.Invoice #.title[0].text.content}}.pdf",
+                  "external": {
+                    "url": "{{6.url}}"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    ],
+    "edges": [
+      {"source": 1, "target": 2},
+      {"source": 2, "target": 3},
+      {"source": 2, "target": 4},
+      {"source": 3, "target": 5},
+      {"source": 4, "target": 5},
+      {"source": 5, "target": 6},
+      {"source": 6, "target": 7}
+    ]
+  },
+  "metadata": {
+    "version": "1.0",
+    "created_for": "INVOICEFORGE",
+    "required_apis": ["notion", "googledocs"],
+    "setup_time": "15 minutes"
+  }
+}
