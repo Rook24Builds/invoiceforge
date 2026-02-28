@@ -1,0 +1,23 @@
+# Secrets
+.gitconfig
+.secrets/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# PowerShell scripts with tokens
+*.ps1
+!push-with-token.ps1
+
+# Temp files
+temp-*.json
+temp_*.json
+
+# Memory (private)
+memory/
+
+# Notion scripts
+notion_*.py
+clear_blocks.ps1
+create_notion_databases.ps1
