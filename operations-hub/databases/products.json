@@ -1,17 +1,18 @@
 {
   "database": "Products",
-  "columns": ["Name", "Status", "Price", "Gumroad URL", "GitHub Repo", "Sales", "Revenue", "Created", "Notes"],
+  "columns": ["Name", "Status", "Price", "Gumroad URL", "GitHub Repo", "Sales", "Revenue", "Created", "Notes", "Blockers"],
   "rows": [
     {
       "Name": "INVOICEFORGE",
-      "Status": "Live",
+      "Status": "READY FOR PUBLISH",
       "Price": 19,
-      "Gumroad URL": "https://rook24.gumroad.com/l/invoiceforge",
+      "Gumroad URL": "PENDING - See INVOICEFORGE-GUMROAD-SETUP.md",
       "GitHub Repo": "https://github.com/Rook24Builds/invoiceforge",
       "Sales": 0,
       "Revenue": 0,
       "Created": "2026-02-27",
-      "Notes": "Auto-generating invoice system for Notion"
+      "Notes": "Auto-generating invoice system for Notion. All content prepared. Requires manual Gumroad upload due to browser service issues.",
+      "Blockers": "Browser automation unreliable during setup. Chrome extension requires manual tab attachment. See INVOICEFORGE-GUMROAD-SETUP.md for manual steps."
     }
   ]
 }
