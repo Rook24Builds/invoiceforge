@@ -1,274 +1,229 @@
-# Freelancer Command Center
+# INVOICEFORGE
 
-**The only Notion template that auto-generates invoices from your client data.**
+**Auto-Generating Invoice System for Notion**
 
-Stop copy-pasting between Notion, Sheets, and Canva. Track clients, projects, and generate PDF invoices in 60 seconds — with auto-calculating totals.
-
-**Pre-populated with 5 sample clients, 8 projects, and 10 invoices. Real data. Real workflow. Real time saved.**
+Link Work Log entries to Invoices for itemized billing. Auto-calculate totals. Generate PDFs via free automation.
 
 ---
 
-## 🚀 Live Product
+## What Makes This Different
 
-**Gumroad:** https://rook24.gumroad.com/l/ugbkj  
-**Landing Page:** https://payrollforcrews.github.io/freelancer-command-center/  
-**Price:** $19 (one-time)
+**Most Notion templates:** Blank databases + manual calculations
 
----
-
-## The Problem
-
-As a freelancer, you track clients and projects in Notion. But invoicing is a mess:
-
-1. Find project hours in Notion
-2. Calculate totals in Sheets
-3. Design invoice in Canva/Docs
-4. Copy-paste client info
-5. Do math manually
-6. Export, send, track
-7. **15 minutes wasted per invoice**
-
-**Every. Time.**
+**INVOICEFORGE:**
+- ✅ **Pre-populated** with 5 clients, 8 projects, 10 invoices
+- ✅ **Itemized invoices** via Work Log → Invoice relations
+- ✅ **Auto-calculations** (Hours × Rate = Amount, Tax, Total)
+- ✅ **PDF Generation** (via Make.com free tier)
+- ✅ **Make.com Template** included (no coding required)
 
 ---
 
-## The Solution
-
-**One database. Zero copy-pasting. Auto-calculated totals.**
-
-## See → Generate → Send
-
-1. **Project done** → Click Invoices database
-2. **+ New** → Create invoice
-3. **Select client** → Auto-fills info
-4. **Select project** → Links work
-5. **Enter hours** → **Rate auto-fills**
-6. **Subtotal auto-calculates**
-7. **Tax auto-calculates**
-8. **Total auto-calculates**
-9. **Export PDF** → Send
-
-**60 seconds. From database to sent invoice.**
-
----
-
-## ✨ What Makes This Different
-
-### Pre-Populated With Real Data
-
-**Not blank pages** — real examples you can learn from:
-
-| Client | Industry | Rate | Status |
-|--------|----------|------|--------|
-| Sarah Chen | SaaS | $150/hr | Active |
-| Marcus Johnson | Coaching | $120/hr | Active |
-| GreenLeaf Organics | E-commerce | $100/hr | Active |
-| Apex Marketing | Agency | $175/hr | Prospective |
-| Elena Ruiz | Non-profit | $80/hr | Paused |
-
-Each client has:
-- ✅ Contact info & payment terms
-- ✅ Linked projects
-- ✅ Invoice history
-- ✅ Lifetime value tracking
-
-### Auto-Calculating Everything
-
-| Field | Formula | Result |
-|-------|---------|--------|
-| Subtotal | `Hours × Rate` | Auto |
-| Tax | `Subtotal × Tax Rate` | Auto |
-| Total | `Subtotal + Tax` | Auto |
-
-**Enter hours. Get complete invoice totals.**
-
-### Linked Databases
+## The Workflow
 
 ```
-Client: Sarah Chen ($150/hr)
-  → Projects: Landing Page, Dashboard UX
-    → Invoices: INV-001 ($3,750), INV-008 ($4,500)
-      → Dashboard: Revenue, Outstanding, Overdue
+Client → Project → Work Log (tasks/hours) → Invoice (with line items) → PDF → Send
 ```
 
-**Everything connected.** Change a rate, future invoices update.
+**60-second invoicing:**
+1. Log hours in Work Log
+2. Select which Invoice to bill
+3. Amount auto-calculates from Hours × Rate
+4. Set status to "Sent" → triggers Make → PDF generated
+5. PDF saved back to Notion → download & send
 
 ---
 
-## 📦 What's Included
+## Included
 
 ### Notion Template
-- **6 databases:** Clients, Projects, Invoices, Tasks, Products, Dashboard
-- **Pre-populated data:** 5 clients, 8 projects, 10 invoices
-- **Formulas:** Auto-calculating subtotals, tax, totals
-- **Views:** Active clients, outstanding invoices, overdue alerts, revenue tracking
-- **PDF export:** One-click professional invoices
+- **Clients Database** (5 sample clients)
+  - Relations to Projects
+  - Auto-calculated totals
+- **Projects Database** (8 sample projects)
+  - Budget tracking
+  - Status workflow
+- **Work Log Database** (task-level time tracking)
+  - Task description
+  - Hours × Rate = Amount (formula)
+  - Relations: Project → Invoice
+- **Invoices Database** (10 sample invoices)
+  - **Line Items relation** to Work Log
+  - **Total from Tasks** rollup (auto-sums)
+  - Tax % field + Tax formula
+  - Status: Draft / Sent / Paid / Overdue
+  - **PDF files property** (for generated PDFs)
 
-### Documentation
-- `SETUP.md` — 3-minute setup
-- `INVOICE-GENERATOR.md` — Full workflow docs
-- `SAMPLE-DATA.md` — All sample data explained
-- `canva-invoices/README.md` — 3 Canva templates (backup option)
+### Make.com Integration
+- **15-minute setup guide**
+- Connects Invoice "Status = Sent" → PDF generation
+- Uses Google Docs template
+- Saves PDF to Notion
+- Optional: auto-email to client
+- **Cost: $0** (Make free tier: 1,000 ops/month)
 
 ### Sample Data
-**Real-world scenarios:**
-- Paid invoices ($3,750, $1,800)
-- Sent invoices ($4,500, $6,000)
-- Overdue invoice ($1,600 — 47 days late ⚠️)
-- Draft invoice (ready to send)
-
-**See how it works. Then delete and add your own.**
-
----
-
-## 🎯 The 60-Second Workflow
-
-**Before:** 15 minutes of app-switching
-
-**With Freelancer Command Center:**
-
-| Step | Action | Time |
-|------|--------|------|
-| 1 | Click Invoices database | 2 sec |
-| 2 | Click + New | 2 sec |
-| 3 | Select client (Sarah Chen) | 5 sec |
-| 4 | Select project (Landing Page) | 5 sec |
-| 5 | Enter hours: 25 | 5 sec |
-| 6 | Rate auto-fills: $150 | 0 sec |
-| 7 | Subtotal calculates: $3,750 | 0 sec |
-| 8 | Add tax (optional) | 5 sec |
-| 9 | Total: $3,750 | 0 sec |
-| 10 | Export PDF | 10 sec |
-| 11 | Send to client | 20 sec |
-| | **Total** | **~60 seconds** |
-
-**Per invoice savings: 14 minutes**
+| Type | Count | Description |
+|------|-------|-------------|
+| Clients | 5 | SaaS, Agency, Design, Logistics, Corp |
+| Projects | 8 | Active, Completed, On Hold, Draft |
+| Invoices | 10 | Draft, Sent, Paid, Overdue statuses |
+| Work Log | 3 | Linked to invoices for itemized billing |
 
 ---
 
-## 💰 Pricing
+## Key Features
+
+| Feature | How It Works |
+|---------|--------------|
+| **Itemized Invoices** | Link Work Log entries to Invoices → line items appear on invoice |
+| **Auto-Calculations** | Hours × Rate = Amount (Work Log) → Total from Tasks rollup (Invoices) |
+| **Tax Support** | Tax % field + formula: Amount × % = Tax |
+| **Status Workflow** | Draft → Sent → Paid / Overdue |
+| **PDF Generation** | Make.com scenario watches "Sent" → generates PDF → saves to Notion |
+| **Client Dashboard** | Auto-calculated: Total Invoiced, Paid, Outstanding per client |
+
+---
+
+## Architecture
+
+```
+┌──────────────┐    ┌──────────────┐    ┌─────────────────┐
+│   CLIENTS    │────│  PROJECTS    │────│   WORK LOG      │
+│              │    │              │    │                 │
+│ • Name       │    │ • Name       │    │ • Task          │
+│ • Email      │    │ • Client     │    │ • Hours         │
+│ • Address    │    │ • Status     │    │ • Rate          │
+│ • Hourly Rate│    │ • Budget     │    │ • Amount (calc) │
+└──────┬───────┘    └──────┬───────┘    └───┬───────────┬─┘
+       │                   │                │           │
+       │                   │                │           │
+       └───────────────────┴────────────────┘           │
+                                                   relation
+       ┌─────────────────────────────────────────────────┘
+       │
+┌──────▼───────┐
+│  INVOICES    │
+│              │
+│ • Invoice #  │
+│ • Client     │
+│ • Line Items │───relation───→ Work Log entries
+│ • Amount     │
+│ • Tax %      │
+│ • Tax (calc) │
+│ • Total (calc)│
+│ • Status     │
+│ • PDF (files)│←── Make.com saves generated PDF here
+└──────────────┘
+```
+
+---
+
+## Quick Start
+
+### 1. Duplicate Template (2 min)
+1. Click "Duplicate" on the Notion share link
+2. Template copies to your workspace
+3. Explore sample data
+
+### 2. Add First Client (2 min)
+1. Open **Clients** database
+2. Click "+ New"
+3. Fill: Name, Email, Address, Hourly Rate
+
+### 3. Create Project (2 min)
+1. Open **Projects** database
+2. Link to Client
+3. Set Budget, Status
+
+### 4. Log Hours (2 min)
+1. Open **Work Log**
+2. Add Task Description
+3. Enter Hours, Rate auto-fills from Client
+4. Amount auto-calculates
+5. Select Project and Invoice to bill
+
+### 5. Generate Invoice (Optional - 10 min setup)
+1. Set up [Make.com integration](MAKE-INTEGRATION.md) (one-time)
+2. Change Invoice Status to "Sent"
+3. PDF auto-generates → saves to Notion
+4. Download PDF, email to client
+
+---
+
+## Make.com Integration
+
+**Included:** `MAKE-INTEGRATION.md` with step-by-step setup
+
+**Requirements:**
+- Make.com account (free)
+- Google account (for PDF template)
+
+**What it does:**
+- Watches for "Status = Sent"
+- Pulls invoice + line items
+- Generates PDF via Google Docs
+- Saves PDF to Notion
+- Optional: emails to client
+
+**Setup time:** 15 minutes  
+**Monthly cost:** $0 (1,000 free operations)
+
+---
+
+## Pricing
 
 **$19** — One-time purchase
 
-**ROI Calculation:**
-- 2 hours saved/month × $50/hr = $100/month value
-- $19 one-time cost
-- **Payback period: 12 minutes of use**
+**Includes:**
+- Notion template (all databases + sample data)
+- Make.com integration guide
+- Google Docs PDF template
+
+**Requires:**
+- Notion account (free)
+- Make.com account (free tier)
+- Google account (free)
 
 ---
 
-## 🛠️ Tech Stack
+## FAQ
 
-| Component | Tool | Cost |
-|-----------|------|------|
-| Product | Notion | Free tier |
-| Design | Canva | Free tier |
-| Hosting | GitHub Pages | Free |
-| Payments | Gumroad | Free tier |
-| Images | KIE.ai | $0.05 |
-| **Total Build Cost** | | **$0.05** |
+**Q: How do I generate PDFs?**  
+A: Three options:
+1. **Recommended:** Use included Make.com setup → auto-generate PDFs
+2. **Manual:** Notion → Export → PDF (page by page)
+3. **Canva:** Use included 3 Canva templates
 
-**Bootstrapper's dream.**
+**Q: Can I use without Make.com?**  
+A: Yes. Template works fully. Make.com is optional for PDF automation.
 
----
+**Q: Is my data private?**  
+A: Yes. Everything lives in YOUR Notion. Make.com only accesses what you authorize.
 
-## 📊 Build Stats
-
-- **Time:** 24 hours
-- **Cost:** $0.05
-- **Revenue Target:** $19/sale
-- **Break-even:** 1 sale
-- **Platform:** Built for Notion (18M+ users)
+**Q: Can I customize?**  
+A: Fully. It's Notion — change properties, add fields, modify formulas.
 
 ---
 
-## 🎯 Who It's For
+## Files Included
 
-✅ **Perfect for:**
-- Freelancers with 3–15 clients
-- Consultants billing hourly
-- Agencies with contractors
-- Designers, developers, writers
-- Anyone invoicing from project data
-
-❌ **Not for:**
-- Large agencies (50+ clients)
-- Businesses using QuickBooks/Xero
-- Product companies (no client work)
+```
+INVOICEFORGE/
+├── 📊 Notion Template (duplicate link)
+├── 📖 SETUP.md - Quick start guide
+├── ⚙️ MAKE-INTEGRATION.md - Make.com setup
+├── 📄 SAMPLE-DATA.md - Sample data explanation
+├── 🎨 Canva Templates/ - 3 invoice designs
+└── 📝 Canva Template Links.md
+```
 
 ---
 
-## 🆚 Compare to Free Templates
+## Support
 
-| Feature | Free Template | This |
-|---------|---------------|------|
-| Pre-populated data | ❌ | ✅ 5 clients |
-| Auto-calculate totals | ❌ | ✅ Formulas |
-| Linked databases | ❌ | ✅ Everything connected |
-| Sample workflows | ❌ | ✅ Real scenarios |
-| Dashboard | ❌ | ✅ Revenue tracking |
-| Documentation | Basic | ✅ Full guides |
-| **Price** | Free | **$19** |
+Questions? Email: rookbuilds24@grr.la
 
-**The $19 buys:** Time saved + Brain damage avoided + System that works
+Built in 24 hours. Yours forever.
 
----
-
-## 🚀 Usage
-
-1. **Duplicate** the Notion template
-2. **Explore** sample data — click around, see connections
-3. **Delete** samples (or keep as reference)
-4. **Add** your clients, projects, rates
-5. **Generate** your first invoice
-6. **Export** PDF and send
-
-**3 minutes to first invoice.**
-
----
-
-## 📖 Documentation
-
-- **Quick start:** `SETUP.md`
-- **Full docs:** `INVOICE-GENERATOR.md`
-- **Sample data:** `SAMPLE-DATA.md`
-- **Gumroad:** https://rook24.gumroad.com/l/ugbkj
-
----
-
-## 💬 Feedback
-
-**Email:** rookbuilds24@grr.la
-
----
-
-## 📈 Market Validation
-
-**Research findings:**
-- Notion has official Invoice Generator (4.9★, 45 reviews)
-- Multiple free templates exist
-- BUT: No template combines **client management + auto-invoicing** with **pre-populated data**
-
-**Our differentiation:**
-- Not just invoices — **the full system**
-- Not blank pages — **real examples**
-- Not manual math — **auto-calculation**
-
-**The pitch:** *"Stop juggling 5 apps"* vs *"Here's an invoice template"*
-
----
-
-## 🔗 Links
-
-| Platform | URL |
-|----------|-----|
-| Gumroad | https://rook24.gumroad.com/l/ugbkj |
-| Landing Page | https://payrollforcrews.github.io/freelancer-command-center/ |
-| Twitter | https://twitter.com/Rook24Builds |
-
----
-
-**Built in 24 hours for $0.05**
-
-**♜ Rook Builds**  
-*Strategy + Execution. Fast.*
+**♜ Rook Builds** | Auto-generate. Don't calculate.

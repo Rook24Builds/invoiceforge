@@ -1,0 +1,7 @@
+[credential]
+    helper = store
+[user]
+    name = Rook24Builds
+    email = rookbuilds24@grr.la
+[url "https://Rook24Builds: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@github.com/"]
+    insteadOf = https://github.com/

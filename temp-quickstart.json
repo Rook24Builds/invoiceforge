@@ -1,0 +1,270 @@
+{
+  "children": [
+    {
+      "object": "block",
+      "type": "callout",
+      "callout": {
+        "rich_text": [{"text": {"content": "Get invoicing in under 5 minutes with INVOICEFORGE. Follow these steps and start billing like a pro."}}],
+        "icon": {"emoji": "🚀"},
+        "color": "blue_background"
+      }
+    },
+    {
+      "object": "block",
+      "type": "divider",
+      "divider": {}
+    },
+    {
+      "object": "block",
+      "type": "heading_2",
+      "heading_2": {
+        "rich_text": [{"text": {"content": "Step 1: Add Your First Client"}}]
+      }
+    },
+    {
+      "object": "block",
+      "type": "paragraph",
+      "paragraph": {
+        "rich_text": [{"text": {"content": "Every invoice needs a client. Start by adding your first customer:"}}]
+      }
+    },
+    {
+      "object": "block",
+      "type": "numbered_list_item",
+      "numbered_list_item": {
+        "rich_text": [{"text": {"content": "Go to the "}}, {"text": {"content": "Clients database", "link": {"url": "https://www.notion.so/3136582328c7813c84cbeaaa695284ed"}}}, {"text": {"content": " (linked at top of this page)"}}]
+      }
+    },
+    {
+      "object": "block",
+      "type": "numbered_list_item",
+      "numbered_list_item": {
+        "rich_text": [{"text": {"content": "Click "New" or use the "+ Client" template button"}}]
+      }
+    },
+    {
+      "object": "block",
+      "type": "numbered_list_item",
+      "numbered_list_item": {
+        "rich_text": [{"text": {"content": "Fill in: Client Name, Email, Company, Hourly Rate"}}]
+      }
+    },
+    {
+      "object": "block",
+      "type": "callout",
+      "callout": {
+        "rich_text": [{"text": {"content": "💡 Pro Tip: Set your default hourly rate here. You can override it per-project later."}}],
+        "icon": {"emoji": "💡"},
+        "color": "gray_background"
+      }
+    },
+    {
+      "object": "block",
+      "type": "divider",
+      "divider": {}
+    },
+    {
+      "object": "block",
+      "type": "heading_2",
+      "heading_2": {
+        "rich_text": [{"text": {"content": "Step 2: Create a Project"}}]
+      }
+    },
+    {
+      "object": "block",
+      "type": "paragraph",
+      "paragraph": {
+        "rich_text": [{"text": {"content": "Projects group your work. You might have "Website Redesign" and "Monthly Retainer" for the same client."}}]
+      }
+    },
+    {
+      "object": "block",
+      "type": "numbered_list_item",
+      "numbered_list_item": {
+        "rich_text": [{"text": {"content": "Go to the "}}, {"text": {"content": "Projects database", "link": {"url": "https://www.notion.so/3136582328c781399ae7f997be5a661b"}}}]
+      }
+    },
+    {
+      "object": "block",
+      "type": "numbered_list_item",
+      "numbered_list_item": {
+        "rich_text": [{"text": {"content": "Select your client from the dropdown (it links automatically!)"}}]
+      }
+    },
+    {
+      "object": "block",
+      "type": "numbered_list_item",
+      "numbered_list_item": {
+        "rich_text": [{"text": {"content": "Enter Project Name and Description"}}]
+      }
+    },
+    {
+      "object": "block",
+      "type": "numbered_list_item",
+      "numbered_list_item": {
+        "rich_text": [{"text": {"content": "The "Total Hours" and "Total Earned" calculate automatically as you log work"}}]
+      }
+    },
+    {
+      "object": "block",
+      "type": "divider",
+      "divider": {}
+    },
+    {
+      "object": "block",
+      "type": "heading_2",
+      "heading_2": {
+        "rich_text": [{"text": {"content": "Step 3: Log Your Hours"}}]
+      }
+    },
+    {
+      "object": "block",
+      "type": "paragraph",
+      "paragraph": {
+        "rich_text": [{"text": {"content": "Work entries track your time. Each entry rolls up to your project totals:"}}]
+      }
+    },
+    {
+      "object": "block",
+      "type": "numbered_list_item",
+      "numbered_list_item": {
+        "rich_text": [{"text": {"content": "In your Project page, scroll to "Work Log""}}]
+      }
+    },
+    {
+      "object": "block",
+      "type": "numbered_list_item",
+      "numbered_list_item": {
+        "rich_text": [{"text": {"content": "Click "Add Work Entry""}}]
+      }
+    },
+    {
+      "object": "block",
+      "type": "numbered_list_item",
+      "numbered_list_item": {
+        "rich_text": [{"text": {"content": "Enter: Date, Hours, Rate (auto-fills from client), Description"}}]
+      }
+    },
+    {
+      "object": "block",
+      "type": "callout",
+      "callout": {
+        "rich_text": [{"text": {"content": "💰 Magic: "Amount" calculates automatically: Hours × Rate"}}],
+        "icon": {"emoji": "✨"},
+        "color": "green_background"
+      }
+    },
+    {
+      "object": "block",
+      "type": "divider",
+      "divider": {}
+    },
+    {
+      "object": "block",
+      "type": "heading_2",
+      "heading_2": {
+        "rich_text": [{"text": {"content": "Step 4: Generate Invoice"}}]
+      }
+    },
+    {
+      "object": "block",
+      "type": "paragraph",
+      "paragraph": {
+        "rich_text": [{"text": {"content": "This is where the magic happens. Invoices auto-calculate from your work entries:"}}]
+      }
+    },
+    {
+      "object": "block",
+      "type": "numbered_list_item",
+      "numbered_list_item": {
+        "rich_text": [{"text": {"content": "Go to the "}}, {"text": {"content": "Invoices database", "link": {"url": "https://www.notion.so/3136582328c781f1a8e1de27706822c6"}}}]
+      }
+    },
+    {
+      "object": "block",
+      "type": "numbered_list_item",
+      "numbered_list_item": {
+        "rich_text": [{"text": {"content": "Click "New Invoice" or duplicate the "Template" invoice"}}]
+      }
+    },
+    {
+      "object": "block",
+      "type": "numbered_list_item",
+      "numbered_list_item": {
+        "rich_text": [{"text": {"content": "Select Project → pulls Client automatically"}}]
+      }
+    },
+    {
+      "object": "block",
+      "type": "numbered_list_item",
+      "numbered_list_item": {
+        "rich_text": [{"text": {"content": "Set Invoice #, Date Due, Tax Rate"}}]
+      }
+    },
+    {
+      "object": "block",
+      "type": "numbered_list_item",
+      "numbered_list_item": {
+        "rich_text": [{"text": {"content": "The Invoice Line Items section auto-populates from your Work Log"}}]
+      }
+    },
+    {
+      "object": "block",
+      "type": "callout",
+      "callout": {
+        "rich_text": [{"text": {"content": "📊 Auto-calculations: Subtotal + Tax = Total. Amount Paid tracks what you've received."}}],
+        "icon": {"emoji": "📊"},
+        "color": "blue_background"
+      }
+    },
+    {
+      "object": "block",
+      "type": "divider",
+      "divider": {}
+    },
+    {
+      "object": "block",
+      "type": "heading_2",
+      "heading_2": {
+        "rich_text": [{"text": {"content": "What's Included (Sample Data)"}}]
+      }
+    },
+    {
+      "object": "block",
+      "type": "paragraph",
+      "paragraph": {
+        "rich_text": [{"text": {"content": "INVOICEFORGE comes pre-loaded with sample data so you can see the system working immediately:"}}]
+      }
+    },
+    {
+      "object": "block",
+      "type": "bulleted_list_item",
+      "bulleted_list_item": {
+        "rich_text": [{"text": {"content": "5 Sample Clients with realistic contact info"}}]
+      }
+    },
+    {
+      "object": "block",
+      "type": "bulleted_list_item",
+      "bulleted_list_item": {
+        "rich_text": [{"text": {"content": "8 Sample Projects across different industries"}}]
+      }
+    },
+    {
+      "object": "block",
+      "type": "bulleted_list_item",
+      "bulleted_list_item": {
+        "rich_text": [{"text": {"content": "10 Sample Invoices showing various states (paid, pending, overdue)"}}]
+      }
+    },
+    {
+      "object": "block",
+      "type": "callout",
+      "callout": {
+        "rich_text": [{"text": {"content": "Feel free to delete sample data once you're comfortable — or keep it as templates to duplicate!"}}],
+        "icon": {"emoji": "🎓"},
+        "color": "yellow_background"
+      }
+    }
+  ]
+}

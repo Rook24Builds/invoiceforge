@@ -1,0 +1,63 @@
+{
+  "children": [
+    {
+      "object": "block",
+      "type": "callout",
+      "callout": {
+        "rich_text": [{"type":"text","text":{"content":"Welcome to INVOICEFORGE! This dashboard shows your business at-a-glance. All calculations are automatic - just add your hours and watch your revenue grow."}}],
+        "icon": {"type":"emoji","emoji":"👋"}
+      }
+    },
+    {
+      "object": "block",
+      "type": "heading_2",
+      "heading_2": {
+        "rich_text": [{"text":{"content":"Your Stats"}}]
+      }
+    },
+    {
+      "object": "block",
+      "type": "callout",
+      "callout": {
+        "rich_text": [{"type":"text","text":{"content":"This Month: $0.00\nAdd hours to see revenue"}}],
+        "icon": {"type":"emoji","emoji":"💰"},
+        "color": "green_background"
+      }
+    },
+    {
+      "object": "block",
+      "type": "heading_2",
+      "heading_2": {
+        "rich_text": [{"text":{"content":"Getting Started"}}]
+      }
+    },
+    {
+      "object": "block",
+      "type": "numbered_list_item",
+      "numbered_list_item": {
+        "rich_text": [{"text":{"content":"Add your first client → Go to Clients database"}}]
+      }
+    },
+    {
+      "object": "block",
+      "type": "numbered_list_item",
+      "numbered_list_item": {
+        "rich_text": [{"text":{"content":"Create a project for that client → Go to Projects database"}}]
+      }
+    },
+    {
+      "object": "block",
+      "type": "numbered_list_item",
+      "numbered_list_item": {
+        "rich_text": [{"text":{"content":"Log your hours as work entries"}}]
+      }
+    },
+    {
+      "object": "block",
+      "type": "numbered_list_item",
+      "numbered_list_item": {
+        "rich_text": [{"text":{"content":"Generate invoice automatically → Go to Invoices database"}}]
+      }
+    }
+  ]
+}

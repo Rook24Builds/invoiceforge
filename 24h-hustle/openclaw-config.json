@@ -1,0 +1,167 @@
+{
+  "meta": {
+    "lastTouchedVersion": "2026.2.6-3",
+    "lastTouchedAt": "2026-02-27T07:30:00.000Z"
+  },
+  "env": {
+    "vars": {
+      "ollama-cloud": "sk-wo375VqlRvqm6VT1BmoMyB4I7l1pOCH1wZP83PKXKQy5scnvUdWAUmyWcEWLnHU3",
+      "OLLAMA_API_KEY": "__OPENCLAW_REDACTED__"
+    }
+  },
+  "wizard": {
+    "lastRunAt": "2026-02-27T07:30:00.000Z",
+    "lastRunVersion": "2026.2.6-3",
+    "lastRunCommand": "configure",
+    "lastRunMode": "local"
+  },
+  "auth": {
+    "profiles": {
+      "openrouter:default": {
+        "provider": "openrouter",
+        "mode": "api_key"
+      },
+      "opencode:default": {
+        "provider": "opencode",
+        "mode": "api_key"
+      }
+    }
+  },
+  "models": {
+    "providers": {
+      "ollama": {
+        "baseUrl": "https://ollama.com/v1",
+        "apiKey": "__OPENCLAW_REDACTED__",
+        "auth": "api-key",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "kimi-k2.5",
+            "name": "Kimi K2.5",
+            "api": "openai-completions",
+            "reasoning": false,
+            "input": [
+              "text",
+              "image"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 128000,
+            "maxTokens": 8192
+          }
+        ]
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "ollama/kimi-k2.5",
+        "fallbacks": [
+          "openrouter/auto",
+          "openrouter/moonshotai/kimi-k2",
+          "opencode/claude-opus-4-6",
+          "opencode/kimi-k2.5-free",
+          "opencode/kimi-k2.5"
+        ]
+      },
+      "models": {
+        "openrouter/auto": {
+          "alias": "OpenRouter"
+        },
+        "openrouter/moonshotai/kimi-k2": {},
+        "opencode/claude-opus-4-6": {
+          "alias": "Opus"
+        },
+        "opencode/kimi-k2.5-free": {},
+        "ollama/kimi-k2.5": {
+          "alias": "Kimi K2.5"
+        },
+        "opencode/kimi-k2.5": {}
+      },
+      "workspace": "C:\\Users\\rainmaker\\.openclaw\\workspace",
+      "compaction": {
+        "mode": "safeguard"
+      },
+      "maxConcurrent": 4,
+      "subagents": {
+        "maxConcurrent": 8
+      }
+    },
+    "list": [
+      {
+        "id": "main",
+        "default": true,
+        "name": "Main Agent",
+        "workspace": "C:\\Users\\rainmaker\\.openclaw\\workspace",
+        "model": "ollama/kimi-k2.5",
+        "groupChat": {
+          "mentionPatterns": [
+            "@openclaw"
+          ]
+        }
+      }
+    ]
+  },
+  "tools": {
+    "web": {
+      "search": {
+        "enabled": true,
+        "apiKey": "__OPENCLAW_REDACTED__"
+      },
+      "fetch": {
+        "enabled": true
+      }
+    }
+  },
+  "messages": {
+    "ackReactionScope": "group-mentions"
+  },
+  "commands": {
+    "native": "auto",
+    "nativeSkills": "auto"
+  },
+  "channels": {
+    "telegram": {
+      "enabled": true,
+      "dmPolicy": "pairing",
+      "botToken": "__OPENCLAW_REDACTED__",
+      "groupPolicy": "allowlist",
+      "streamMode": "partial"
+    }
+  },
+  "gateway": {
+    "port": 18789,
+    "mode": "local",
+    "bind": "loopback",
+    "auth": {
+      "mode": "token",
+      "token": "__OPENCLAW_REDACTED__"
+    },
+    "tailscale": {
+      "mode": "off",
+      "resetOnExit": false
+    }
+  },
+  "skills": {
+    "install": {
+      "nodeManager": "npm"
+    },
+    "entries": {
+      "notion": {
+        "apiKey": "__OPENCLAW_REDACTED__"
+      }
+    }
+  },
+  "plugins": {
+    "entries": {
+      "telegram": {
+        "enabled": true
+      }
+    }
+  }
+}
