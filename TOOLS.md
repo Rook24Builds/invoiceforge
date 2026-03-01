@@ -248,6 +248,59 @@ When creating bidirectional relations:
 
 ---
 
+## Tool Usage Guidelines (CRITICAL)
+
+### Required vs Optional Parameters
+
+**ALWAYS provide required parameters.** Tools will fail without them.
+
+| Tool | Required Parameters | Common Mistakes |
+|------|---------------------|-----------------|
+| `read` | `file_path` OR `path` (string) | ❌ Calling without any path argument |
+| `write` | `file_path` OR `path` + `content` | ❌ Omitting content, wrong parameter names |
+| `edit` | `file_path` OR `path` + `oldText` + `newText` | ❌ Using wrong oldText (must match exactly) |
+| `exec` | `command` | ❌ None (always required) |
+| `web_search` | `query` | ❌ None (always required) |
+| `web_fetch` | `url` | ❌ None (always required) |
+| `memory_search` | `query` | ❌ None (always required) |
+
+### Parameter Name Aliases (For Sub-Agents)
+
+Some tools accept **either** of two parameter names:
+- `read`: accepts `file_path` OR `path`
+- `write`: accepts `file_path` OR `path`
+- `edit`: accepts `file_path` OR `path`
+
+**Sub-agents**: Always use the primary name shown in the system prompt (`file_path` for read/write/edit).
+
+### Tool Call Failure Pattern (FIXED)
+
+**Problem**: `read tool called without path` errors in embedded agents.
+**Cause**: Sub-agents not providing required `file_path` parameter.
+**Solution**: ALL tool calls must include required params. Check the system prompt for each tool's schema.
+
+### Sub-Agent Tool Safety Workaround
+
+OpenClaw's minimal prompt mode for sub-agents omits tool schemas. Models may guess wrong.
+
+**Solution:** Always prepend `SUBAGENT-PREAMBLE.md` to sub-agent tasks:
+```
+sessions_spawn task:"READ SUBAGENT-PREAMBLE.md FIRST.
+
+Then: [actual task]"
+```
+
+This preamble documents required params and common failures for all tools.
+
+### Debugging Tool Failures
+
+1. Check the exact error message — it usually says what's missing
+2. Verify parameter names match the system prompt (case-sensitive!)
+3. Required params: if the tool fails, you likely missed one
+4. Sub-agents: validate your tool calls before sending them
+
+---
+
 ## Local Setup
 
 ### Cameras
